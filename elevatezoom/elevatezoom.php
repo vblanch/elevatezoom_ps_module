@@ -33,7 +33,7 @@ class ElevateZoom extends Module
 		$this->version = '1.0';
 		$this->author = 'Victor Blanch';
 		$this->need_instance = 0;
-		$this->ps_versions_compliancy = array('min' => '1.5', 'max' => '1.5.9.9');
+		$this->ps_versions_compliancy = array('min' => '1.4.0.0', 'max' => '1.5.9.9');
 
 		parent::__construct();	//needed for translations
 
@@ -48,12 +48,18 @@ class ElevateZoom extends Module
 		$this->zoomTypeTr = array($this->l('inner'), $this->l('lens'), $this->l('window'));
 		$this->lensShape = array("square","round"); 
 		$this->lensShapeTr = array($this->l('square'), $this->l('round'));
+		
+		/* Backward compatibility */
+		if (_PS_VERSION_ < '1.5')
+			require(_PS_MODULE_DIR_.$this->name.'/backward_compatibility/backward.php');				
 	}
 
 	public function install()
 	{
-		if (Shop::isFeatureActive())
-			Shop::setContext(Shop::CONTEXT_ALL);
+			//context feature only works in ps 1.5 or higher
+		if (_PS_VERSION_ >= '1.5')
+			if (Shop::isFeatureActive())
+				Shop::setContext(Shop::CONTEXT_ALL);
 			
 		/* set default values when installing */
 
