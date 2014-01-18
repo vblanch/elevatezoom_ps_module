@@ -199,7 +199,7 @@ if ( typeof Object.create !== 'function' ) {
 					+ "px;float: right;display: none;"
 					+ "overflow: hidden;"
 					+ "z-index: 999;" 
-					+ "-webkit-transform: translateZ(0);"               
+					/*+ "-webkit-transform: translateZ(0);" */ /* Removed for interfering with Google Chrome */
 					+ "opacity:"+(self.options.lensOpacity)+";filter: alpha(opacity = "+(self.options.lensOpacity*100)+"); zoom:1;"
 					+ "width:"+lensWidth+"px;"
 					+ "height:"+lensHeight+"px;"
@@ -241,13 +241,14 @@ if ( typeof Object.create !== 'function' ) {
 					+ "border-top-right-radius: " + String(self.options.lensSize / 2 + self.options.borderSize) + "px;"
 					+ "border-bottom-left-radius: " + String(self.options.lensSize / 2 + self.options.borderSize) + "px;"
 					+ "border-bottom-right-radius: " + String(self.options.lensSize / 2 + self.options.borderSize) + "px;";
-
 				}
 
 				//create the div's                                                + ""
 				//self.zoomContainer = $('<div/>').addClass('zoomContainer').css({"position":"relative", "height":self.nzHeight, "width":self.nzWidth});
 
-				self.zoomContainer = $('<div class="zoomContainer" style="-webkit-transform: translateZ(0);position:absolute;left:'+self.nzOffset.left+'px;top:'+self.nzOffset.top+'px;height:'+self.nzHeight+'px;width:'+self.nzWidth+'px;"></div>');
+				//self.zoomContainer = $('<div class="zoomContainer" style="-webkit-transform: translateZ(0);position:absolute;left:'+self.nzOffset.left+'px;top:'+self.nzOffset.top+'px;height:'+self.nzHeight+'px;width:'+self.nzWidth+'px;"></div>');
+				self.zoomContainer = $('<div class="zoomContainer" style="position:absolute;left:'+self.nzOffset.left+'px;top:'+self.nzOffset.top+'px;height:'+self.nzHeight+'px;width:'+self.nzWidth+'px;"></div>');
+				/* translateZ removed for interfering with Google Chrome */
 				$('body').append(self.zoomContainer);	
 
 
