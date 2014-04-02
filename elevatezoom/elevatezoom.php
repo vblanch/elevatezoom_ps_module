@@ -33,7 +33,7 @@ class ElevateZoom extends Module
 		$this->version = '1.0';
 		$this->author = 'Victor Blanch';
 		$this->need_instance = 0;
-		$this->ps_versions_compliancy = array('min' => '1.4.0.0', 'max' => '1.5.9.9');
+		$this->ps_versions_compliancy = array('min' => '1.4.0.0', 'max' => '1.6.10.10');
 
 		parent::__construct();	//needed for translations
 
