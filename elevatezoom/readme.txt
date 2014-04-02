@@ -26,6 +26,11 @@ then in the backend go to Modules, search for "elevateZoom", then press Install.
 6. Once installed and activated, just press the Configure button in your module (again in the Modules 
 section, search for "elevateZoom" if you can't find it). Set the parameters you want and press Save.
 
+Note: If you keep the "inner" setting selected and you notice no change in the image, just remember that you must 
+make the images of your products bigger than it's shown size on the backend (this means that your image file must be
+bigger in pixels than the html "<img>" element shown. This is essential, or your zoom  won't look well. You can set the 
+product image size on the backend under "Preferences->Images".
+
 Credits:
 ******************************************
 
